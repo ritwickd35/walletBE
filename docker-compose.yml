@@ -1,0 +1,27 @@
+version: '3'
+services:
+  ticketing-BE:
+    container_name: walletBE
+    image: walletBE
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    # networks:
+    #   - my-network
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27018:27017"
+    # networks:
+    #   - my-network
+
+
+    # networks:
+    #   my-network:
+    #       driver: bridge
