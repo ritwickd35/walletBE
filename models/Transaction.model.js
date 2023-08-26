@@ -20,11 +20,23 @@ const transactionSchema = mongoose.Schema({
     date: {
         type: Date
     },
-    user_type: {
+    type: {
         type: String,
         required: true,
-        enum: ['CREDIT', 'DEBITs']
+        enum: ['CREDIT', 'DEBIT']
     }
+})
+
+
+transactionSchema.pre('save', function (next) {
+    const transaction = this;
+    // if character at 0 is '-' then debit else credit
+    if (this.amount.charAt(0) === '-') {
+        transaction.type = 'DEBIT'
+    }
+    else transaction.type = 'CREDIT'
+
+    next()
 })
 
 const Transaction = mongoose.model('Transaction', transactionSchema)
