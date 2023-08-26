@@ -22,7 +22,7 @@ const transactionSchema = mongoose.Schema({
     },
     type: {
         type: String,
-        required: true,
+        // required: true,
         enum: ['CREDIT', 'DEBIT']
     }
 })
@@ -35,6 +35,8 @@ transactionSchema.pre('save', function (next) {
         transaction.type = 'DEBIT'
     }
     else transaction.type = 'CREDIT'
+
+    console.log("pre save transaction", transaction)
 
     next()
 })
