@@ -1,8 +1,8 @@
 version: '3'
 services:
   ticketing-BE:
-    container_name: walletBE
-    image: walletBE
+    container_name: walletbe
+    image: walletbe
     restart: always
     build: .
     ports:

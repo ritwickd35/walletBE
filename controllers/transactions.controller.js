@@ -13,6 +13,7 @@ const initialiseWallet = async (req, res) => {
 
     wallet.save().then(wallet => {
         // handle erronoeous balances and show errors and give up
+        // check if converting to basic number is enough
 
         const transaction = new Transaction({
             walletId: wallet._id,
@@ -25,7 +26,7 @@ const initialiseWallet = async (req, res) => {
         transaction.save().then(transaction => {
             wallet.balance = balance;
             wallet.save().then((wallet) => {
-                return void res.status(HttpStatusCode.Created).send({
+                return void res.status(HttpStatusCode.Ok).send({
                     id: wallet._id,
                     balance: wallet.balance,
                     name: wallet.name,
@@ -39,4 +40,26 @@ const initialiseWallet = async (req, res) => {
 const fetchTransactions = async (req, res) => {
     const { walletId, skip, limit } = req.query;
 
+    const transactions = Transaction.find({ walletId }).skip(skip).limit(limit);
+
+    if (transactions.length) {
+        return void res.status(HttpStatusCode.Ok).send(transactions);
+    }
+    else return res.status(HttpStatusCode.NotFound).send({ message: "not found" })
+}
+
+const getWalletDetails = async (req, res) => {
+    const walletId = req.query.id;
+
+    const walletDetails = await Wallet.findOne({ "_id": walletId })
+
+    if (walletDetails) {
+        return void res.status(HttpStatusCode.Ok).send(walletDetails)
+    }
+    else return void res.status(HttpStatusCode.NotFound).send({ message: "not found" })
+}
+
+module.exports = {
+    initialiseWallet,
+    fetchTransactions, getWalletDetails
 }
