@@ -9,7 +9,28 @@ const Decimal = require('decimal.js');
 const initialiseWallet = (req, res) => {
     const { balance, name } = req.body;
 
+    if (!balance) {
+        const wallet = new Wallet({
+            balance: '0',
+            name,
+            date: Date.now()
+        })
+        console.log("saving wallet with 0 balance as no balance was given")
+        wallet.save().then(wallet => {
+            console.log("wallet saved")
+            return void res.status(HttpStatusCode.Ok).send({
+                id: wallet._id,
+                balance: wallet.balance,
+                name: wallet.name,
+                date: wallet.date
+            })
+        })
+        return
+    }
+    console.log("herre", balance)
+
     const amountString = balance.toString(10).trim();
+
 
     if (verifyAmount(amountString)) {
         const wallet = new Wallet({
