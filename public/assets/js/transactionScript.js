@@ -1,4 +1,3 @@
-console.log("IN TRANSACTIONS", walletId)
 
 
 function displayError(errorMessage) {
@@ -9,9 +8,18 @@ function displayError(errorMessage) {
 
 document.addEventListener('DOMContentLoaded', init, false);
 
+document.getElementById('maxRows').addEventListener("change", (event) => {
+    pageSize = Number(event.target.value);
+    curPage = 1
+    if (pageSize >= tableData.length) document.getElementById('paginator').style.display = 'none'
+    else document.getElementById('paginator').style.display = ''
+    renderTable()
+
+})
+
 let tableData, table, sortCol;
 let sortAsc = false;
-const pageSize = 3;
+let pageSize = 3;
 let curPage = 1;
 
 function init() {
@@ -27,6 +35,8 @@ function init() {
             })
             .then((resData) => {
                 tableData = resData
+                if (pageSize >= tableData.length) document.getElementById('paginator').style.display = 'none'
+                else document.getElementById('paginator').style.display = ''
                 renderTable()
                 // listen for sort clicks
                 document.querySelectorAll('#transactTable thead tr th').forEach(t => {
@@ -68,7 +78,6 @@ function sort(e) {
     let thisSort = e.target.dataset.sort;
     if (sortCol === thisSort) sortAsc = !sortAsc;
     sortCol = thisSort;
-    console.log('sort dir is ', sortAsc, sortCol);
     tableData.sort((a, b) => {
         if (Number(a[sortCol]) && Number(b[sortCol])) {
             a = Number(a[sortCol])
@@ -86,7 +95,6 @@ function sort(e) {
 
         return b[sortCol] > a[sortCol] ? 1 : -1
     });
-    console.log(tableData.map((data) => data[sortCol]))
     renderTable();
 }
 

@@ -1,6 +1,8 @@
+:root {
+  --table: #919cc5;
+}
 .custom-model-main-walletError {
   text-align: center;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -18,9 +20,24 @@
   overflow-y: auto;
 }
 #submitTransaction {
+  background: #21d1b4;
+  width: 100%;
+  height: 50px;
+}
+#prevButton {
   background: #e25542;
   width: 100%;
   height: 50px;
+}
+#nextButton {
+  background: #21d1b4;
+
+  width: 100%;
+  height: 50px;
+}
+#maxRows {
+  height: 35px;
+  background: rgb(184, 189, 189);
 }
 a {
   border-radius: 30px !important;
@@ -66,6 +83,9 @@ a:active {
   opacity: 1;
   overflow: hidden;
 }
+table {
+  --bs-table-bg: var(--table);
+}
 table th,
 table td {
   text-align: center;
@@ -78,7 +98,9 @@ table tr:nth-child(even) {
 .pagination li:hover {
   cursor: pointer;
 }
-
+#walletInputDiv {
+  color: rgb(190, 190, 190) !important;
+}
 body {
   background: #6c93b1c2;
   color: rgb(190, 190, 190) !important;

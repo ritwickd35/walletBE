@@ -40,18 +40,22 @@ body
             .mb-3
                 label.form-label(for='inputWalletName') Wallet Name
                 input#inputWalletName.form-control(type='text' aria-describedby='walletHelp' name='walletName')
-                #walletHelp.form-text Enter your wallet name
+                #walletHelp.form-text(style='color: white;') Enter your wallet name
             .mb-3
                 label.form-label(for='inputBalance') Initial Balance
-                input#inputBalance.form-control(type='number' name='walletBalance')
-            button#walletsubmitbtn.btn.btn-primary(type='submit') Submit
+                input#inputBalance.form-control(type='text' name='walletBalance')
+            .row 
+                .col-4
+                .col-4
+                    button#walletsubmitbtn.btn.btn-primary(type='submit' style='background:#21d1b4; width: 100%;') Submit
+                .col-4
     #transactionDiv.row.card.my-4
         h5.card-header.text-center New Transaction
         .card-body
             form#transactionForm
                 .mb-3
                     label.form-label(for='inputTransactionAmt') Transaction Amount
-                    input#inputTransactionAmt.form-control(type='number' aria-describedby='transactionHelp' name='transactionAmt')
+                    input#inputTransactionAmt.form-control(type='text' aria-describedby='transactionHelp' name='transactionAmt')
                     #transactionHelp.form-text
                     | Enter Amount for transaction
                 .mb-3

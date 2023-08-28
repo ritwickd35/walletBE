@@ -83,7 +83,7 @@ function handleTransaction(eventData) {
     const transactionType = formData.get("transactionType");
 
     if (!transactionName || !transactionAmt || !transactionType) {
-        displayError('Enter Complete Transaction Details')
+        displayError('Enter Correct Transaction Details')
         return;
     }
     if (transactionType === 'DEBIT' && transactionAmt > 0) {
