@@ -14,7 +14,7 @@ body
         .custom-model-inner
             .close-btn-1 &times;
             .custom-model-wrap
-                #errortext.pop-up-content-wrap
+                #errortext.pop-up-content-wrap(style='color: gray;')
                     | Please enter correct details
         .bg-overlay-1
     
@@ -24,15 +24,20 @@ body
 
     #walletDetailsDiv.row
         .card.text-center(style='margin-top: 20px; padding: 0px')
-            h5.card-header Wallet Details
+            h5.card-header(style='color: gray;') Wallet Details
             .card-body
                 .row
-                    .col-6
-                        h5 Wallet Name
+                    .col-4
+                        h5.my-2 Wallet Name
                         #walletName 
-                    .col-6
-                        h5 Wallet Balance
+                    .col-4
+                        h5.my2 Wallet Balance
                         #walletBalance 
+                    .col-2 
+                        a#transactionNavigate(href='/transaction-details/')
+                            |View Transactions
+
+
     #walletInputDiv.row.card.my-4.py-3
         form#walletDetailsForm
             .mb-3
@@ -43,8 +48,8 @@ body
                 label.form-label(for='inputBalance') Initial Balance
                 input#inputBalance.form-control(type='number' name='walletBalance')
             button#walletsubmitbtn.btn.btn-primary(type='submit') Submit
-    #transactionDiv.row.card.my-4.py-3
-        h5.card-header New Transaction
+    #transactionDiv.row.card.my-4
+        h5.card-header(style='color: gray;') New Transaction
         .card-body
             form#transactionForm
                 .mb-3

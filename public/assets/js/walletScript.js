@@ -6,6 +6,8 @@ if (!walletDetails) {
     walletDetails = JSON.parse(walletDetails)
     console.log("got wallet details in LC", walletDetails)
 
+    document.getElementById('transactionNavigate').href = '/transaction-details/' + walletDetails.id
+
     document.getElementById("walletInputDiv").style.display = "none";
     // load wallet details from BE using localstorage info
     document.getElementById("walletName").textContent = walletDetails.name;
@@ -19,10 +21,10 @@ function handleWalletDetails(eventData) {
     const form = eventData.target;
     // Create a FormData object from the form
     const formData = new FormData(form);
-    
+
     const name = formData.get("walletName");
     const balance = formData.get("walletBalance");
-    
+
     if (!name) {
         displayError('Enter Wallet Name')
         return;
@@ -54,7 +56,7 @@ function handleWalletDetails(eventData) {
         .then((data) => {
             walletDetails = data
             localStorage.setItem("walletDetails", JSON.stringify(walletDetails))
-            
+
             document.getElementById("walletName").textContent = walletDetails.name;
             document.getElementById("walletBalance").textContent = walletDetails.balance;
             document.getElementById("walletDetailsDiv").style.display = "";

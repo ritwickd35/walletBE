@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/index');
+const favicon = require('serve-favicon')
 const bodyParser = require('body-parser');
 const path = require("path");
 
@@ -27,6 +28,7 @@ const app = express() // creating our server
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 const port = process.env.SERVER_PORT;
 
@@ -44,8 +46,9 @@ main().then(() => {
         res.render("index");
     });
 
-    app.get("/about", (req, res) => {
-        res.render("about", { title: "Hey", message: "Hello there!" });
+    app.get("/transaction-details/:walletId", (req, res) => {
+        console.log("get wID", req.params.walletId)
+        res.render("transactions", { walletId: req.params.walletId });
     });
     app.use('/', routes)
 })
