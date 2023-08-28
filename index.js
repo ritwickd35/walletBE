@@ -1,11 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/index');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const path = require("path");
 
 
 // create application/json parser
 const jsonParser = bodyParser.json()
+
+
+
+
 
 // const mongo_URL = `mongodb://${process.env.MONGO_URL}/${process.env.MONGO_DATABASE_NAME}?directConnection=true`
 const mongo_URL = `mongodb://${process.env.MONGO_URL}/${process.env.MONGO_DATABASE_NAME}`
@@ -17,6 +22,10 @@ async function main() {
 }
 
 const app = express() // creating our server
+
+// setting view engine
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 const port = process.env.SERVER_PORT;
 
@@ -30,6 +39,13 @@ main().then(() => {
     app.get('/test', (req, res) => {
         res.send("hello world")
     })
+    app.get("/", (req, res) => {
+        res.render("index");
+    });
+
+    app.get("/about", (req, res) => {
+        res.render("about", { title: "Hey", message: "Hello there!" });
+    });
     app.use('/', routes)
 })
 
