@@ -30,7 +30,7 @@ const initialiseWallet = (req, res) => {
 
     const amountString = balance.toString(10).trim();
 
-    if(Number(amountString) < 0){
+    if (Number(amountString) < 0) {
         return void res.status(HttpStatusCode.NotAcceptable).send({ "message": "Cannot open a new wallet with negative balance" })
     }
 
@@ -90,14 +90,17 @@ const initialiseWallet = (req, res) => {
 
 const fetchTransactions = async (req, res) => {
     const { walletId, skip, limit } = req.query;
+    try {
+        const transactions = await Transaction.find({ walletId: new ObjectId(walletId) }).skip(skip).limit(limit).sort({ date: -1 })
 
-    const transactions = await Transaction.find({ walletId: new ObjectId(walletId) }).skip(skip).limit(limit).sort({ date: -1 })
-    console.log(transactions)
-
-    if (transactions.length) {
-        return void res.status(HttpStatusCode.Ok).send(transactions);
+        if (transactions.length) {
+            return void res.status(HttpStatusCode.Ok).send(transactions);
+        }
+        else return res.status(HttpStatusCode.NotFound).send({ message: "not found" })
     }
-    else return res.status(HttpStatusCode.NotFound).send({ message: "not found" })
+    catch (e) {
+        return res.status(HttpStatusCode.NotFound).send({ message: "Not found. Reason: " + e.message })
+    }
 }
 
 const getWalletDetails = async (req, res) => {

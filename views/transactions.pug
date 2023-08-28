@@ -21,20 +21,21 @@ html(lang='en')
                             | Please enter correct details
                 .bg-overlay-1
             .row
-                card.text-center(style='margin-top: 20px; padding: 0px')
-                h5.card-header Wallet Details
-                .card-body
-                    .row
-                        table#transactTable.table.table-striped.table-class
-                            thead
-                                tr
-                                th(data-sort='name') Amount
-                                th(data-sort='age') Type
-                                th(data-sort='breed') Description
-                                th(data-sort='gender') Date
-                            tbody
-                                tr
-                                td(colspan='4')
-                                    i Loading...
-                        button#prevButton Previous
-                        button#nextButton Next
+                .card.text-center(style='margin-top: 20px; padding: 0px')
+                    h5.card-header Wallet Details
+                    .card-body
+                        .row
+                            table#transactTable.table.table-striped.table-class
+                                thead
+                                    tr
+                                    th(data-sort='amount') Amount
+                                    th(data-sort='type') Type
+                                    th(data-sort='description') Description
+                                    th(data-sort='date') Date
+                                    th(data-sort='balance') Balance
+                                tbody
+                                    tr
+                                    td(colspan='5')
+                                        i Loading...
+                            button#prevButton Previous
+                            button#nextButton Next

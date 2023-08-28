@@ -58,6 +58,7 @@ function renderTable() {
      <td>${c.type}</td>
      <td>${c.description}</td>
      <td>${c.date}</td>
+     <td>${c.balance}</td>
      </tr>`;
     });
     document.querySelector('#transactTable tbody').innerHTML = result;
@@ -67,12 +68,25 @@ function sort(e) {
     let thisSort = e.target.dataset.sort;
     if (sortCol === thisSort) sortAsc = !sortAsc;
     sortCol = thisSort;
-    console.log('sort dir is ', sortAsc);
+    console.log('sort dir is ', sortAsc, sortCol);
     tableData.sort((a, b) => {
-        if (a[sortCol] < b[sortCol]) return sortAsc ? 1 : -1;
-        if (a[sortCol] > b[sortCol]) return sortAsc ? -1 : 1;
-        return 0;
+        if (Number(a[sortCol]) && Number(b[sortCol])) {
+            a = Number(a[sortCol])
+            b = Number(b[sortCol])
+            if (sortAsc) {
+                return a - b
+            }
+
+            return b - a
+        }
+        else
+            if (sortAsc) {
+                return a[sortCol] > b[sortCol] ? 1 : -1
+            }
+
+        return b[sortCol] > a[sortCol] ? 1 : -1
     });
+    console.log(tableData.map((data) => data[sortCol]))
     renderTable();
 }
 
