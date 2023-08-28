@@ -18,24 +18,21 @@ body
                     | Please enter correct details
         .bg-overlay-1
     
-    
-
-
-
     #walletDetailsDiv.row
         .card.text-center(style='margin-top: 20px; padding: 0px')
-            h5.card-header(style='color: gray;') Wallet Details
+            h5.card-header Wallet Details
             .card-body
                 .row
                     .col-4
                         h5.my-2 Wallet Name
-                        #walletName 
+                        h6#walletName 
                     .col-4
                         h5.my2 Wallet Balance
                         #walletBalance 
-                    .col-2 
+                    .col-2.mx-4 
                         a#transactionNavigate(href='/transaction-details/')
-                            |View Transactions
+                            small View Transactions
+
 
 
     #walletInputDiv.row.card.my-4.py-3
@@ -49,7 +46,7 @@ body
                 input#inputBalance.form-control(type='number' name='walletBalance')
             button#walletsubmitbtn.btn.btn-primary(type='submit') Submit
     #transactionDiv.row.card.my-4
-        h5.card-header(style='color: gray;') New Transaction
+        h5.card-header.text-center New Transaction
         .card-body
             form#transactionForm
                 .mb-3
@@ -68,5 +65,9 @@ body
                     input#transactionDebit.form-check-input(type='radio' name='transactionType' value='DEBIT')
                     label.form-check-label(for='transactionDebit')
                     | DEBIT
-                button.btn.btn-primary(type='submit') Submit
+                .row 
+                    .col-4
+                    .col-4
+                        button#submitTransaction.btn.btn-primary(type='submit' style='background:#e25542;') Submit
+                    .col-4
         

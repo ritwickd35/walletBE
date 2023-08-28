@@ -17,12 +17,17 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+#submitTransaction {
+  background: #e25542;
+  width: 100%;
+  height: 50px;
+}
 a {
   border-radius: 30px !important;
 }
 a:link,
 a:visited {
-  background-color: #e1341e;
+  background-color: #e25542;
   color: white;
   padding: 14px 25px;
   text-align: center;
@@ -32,7 +37,7 @@ a:visited {
 
 a:hover,
 a:active {
-  background-color: #e74f3e;
+  background-color: #800f00;
 }
 .custom-model-main-transactionError {
   color: rgb(190, 190, 190) !important;
@@ -61,25 +66,39 @@ a:active {
   opacity: 1;
   overflow: hidden;
 }
+table th,
+table td {
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #bef2f5;
+}
+
+.pagination li:hover {
+  cursor: pointer;
+}
 
 body {
-  background: #009688;
+  background: #6c93b1c2;
   color: rgb(190, 190, 190) !important;
 }
 input {
-  background-color: #7fe0a9 !important;
+  background: #b5b5b5 !important;
 }
 input:checked {
+  background: #e25542 !important;
+
   border: 2px solid deeppink;
 }
 .card {
-  box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: 1px 1px 2px rgb(0, 0, 0);
   border-radius: 30px;
-  background: #000000;
+  background: #1d1a1a;
 }
 
 .card-body {
-  background: #000000;
+  background: #1a1717;
   color: rgb(190, 190, 190) !important;
 
   border-bottom-left-radius: 30px !important;
@@ -93,9 +112,11 @@ input:checked {
 }
 
 .card-header {
-  border-radius: 30px !important;
+  background: gainsboro !important;
+
+  border-top-left-radius: 30px !important;
+  border-top-right-radius: 30px !important;
   border: 0px;
-  background: #000000;
 }
 
 .card-header img {

@@ -1,10 +1,40 @@
 doctype
 html(lang='en')
     head
+        script(src='/assets/js/jQuery.js')
+        link(rel='stylesheet' href=`/assets/css/bootstrap.css`)
+        link(rel='stylesheet' href=`/assets/css/style.css`)
         meta(charset='utf-8')
         title View Transactions
         script.
-            const walletId = !{walletId};
+            const walletId = String(`!{walletId}`);
         script(src=`/assets/js/transactionScript.js` defer)
     body
-        
+        .container
+            button#errormodalshow.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style='display: none;') Launch demo modal
+            // Modal
+            .custom-model-main-walletError
+                .custom-model-inner
+                    .close-btn-1 &times;
+                    .custom-model-wrap
+                        #errortext.pop-up-content-wrap(style='color: gray;')
+                            | Please enter correct details
+                .bg-overlay-1
+            .row
+                card.text-center(style='margin-top: 20px; padding: 0px')
+                h5.card-header Wallet Details
+                .card-body
+                    .row
+                        table#transactTable.table.table-striped.table-class
+                            thead
+                                tr
+                                th(data-sort='name') Amount
+                                th(data-sort='age') Type
+                                th(data-sort='breed') Description
+                                th(data-sort='gender') Date
+                            tbody
+                                tr
+                                td(colspan='4')
+                                    i Loading...
+                        button#prevButton Previous
+                        button#nextButton Next

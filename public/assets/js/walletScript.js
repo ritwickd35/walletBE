@@ -59,6 +59,7 @@ function handleWalletDetails(eventData) {
 
             document.getElementById("walletName").textContent = walletDetails.name;
             document.getElementById("walletBalance").textContent = walletDetails.balance;
+            document.getElementById('transactionNavigate').href = '/transaction-details/' + walletDetails.id
             document.getElementById("walletDetailsDiv").style.display = "";
             document.getElementById("transactionDiv").style.display = "";
             document.getElementById("walletInputDiv").style.display = "none";
