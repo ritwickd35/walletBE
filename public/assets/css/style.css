@@ -129,6 +129,8 @@
 }
 
 .close-btn-1 {
+    margin-right: 3px;
+    margin-top: 19px !important;
     position: absolute;
     right: 0;
     top: -30px;
