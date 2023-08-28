@@ -27,9 +27,12 @@ const initialiseWallet = (req, res) => {
         })
         return
     }
-    console.log("herre", balance)
 
     const amountString = balance.toString(10).trim();
+
+    if(Number(amountString) < 0){
+        return void res.status(HttpStatusCode.NotAcceptable).send({ "message": "Cannot open a new wallet with negative balance" })
+    }
 
 
     if (verifyAmount(amountString)) {
