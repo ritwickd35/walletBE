@@ -19,9 +19,10 @@ function handleWalletDetails(eventData) {
     const form = eventData.target;
     // Create a FormData object from the form
     const formData = new FormData(form);
+    
     const name = formData.get("walletName");
     const balance = formData.get("walletBalance");
-    console.log("eventData", name, balance);
+    
     if (!name) {
         displayError('Enter Wallet Name')
         return;
@@ -77,15 +78,6 @@ function handleTransaction(eventData) {
     const transactionName = formData.get("transactionName");
     let transactionAmt = Number(formData.get("transactionAmt"));
     const transactionType = formData.get("transactionType");
-
-
-
-    // $(".custom-model-main").removeClass("model-open");
-
-
-    console.log("eventData", transactionName);
-    console.log("eventData", transactionAmt);
-    console.log("eventData", transactionType);
 
     if (!transactionName || !transactionAmt || !transactionType) {
         displayError('Enter Complete Transaction Details')
