@@ -9,6 +9,8 @@ if (!walletDetails) {
     document.getElementById('transactionNavigate').href = '/transaction-details/' + walletDetails.id
 
     document.getElementById("walletInputDiv").style.display = "none";
+    document.getElementById('pageInfo').style.display = 'none'
+
     // load wallet details from BE using localstorage info
     document.getElementById("walletName").textContent = walletDetails.name;
     document.getElementById("walletBalance").textContent = walletDetails.balance;
@@ -63,6 +65,8 @@ function handleWalletDetails(eventData) {
             document.getElementById("walletDetailsDiv").style.display = "";
             document.getElementById("transactionDiv").style.display = "";
             document.getElementById("walletInputDiv").style.display = "none";
+            document.getElementById('pageInfo').style.display = 'none'
+
 
         }).catch(err => {
             err.json().then((err) => {

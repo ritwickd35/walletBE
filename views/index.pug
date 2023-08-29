@@ -13,6 +13,9 @@ body
         .banner-text
             
           h1(style='font-family: monospace;') Payments Wallet
+          p#pageInfo
+            strong  Easily track your personal wallet.
+            |  This tool helps you track all your transactions and allows you to download a record of them for saving. Enter your wallet information to get started!
           #walletDetailsDiv
                 .card-body
                     .row(style='margin-top: 30px;margin-bottom: 40px;')
@@ -45,7 +48,7 @@ body
         #walletInputDiv.card(style='margin-top:20px;')
             img.card-icon(src='/assets/images/monitoring.png', alt='monitoring')
             h3.card-title Configure Wallet 
-            p.card-text No Wallet is configured. Please enter the wallet name
+            p.card-text No Wallet is configured. Please enter the wallet name. 
             form#walletDetailsForm
                 .mb-3
                     label.form-label(for='inputWalletName') Wallet Name
