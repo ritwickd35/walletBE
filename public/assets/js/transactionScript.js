@@ -107,3 +107,32 @@ function nextPage() {
     if ((curPage * pageSize) < tableData.length) curPage++;
     renderTable();
 }
+
+function downloadCSV(event) {
+    const csvString = "data:text/csv;charset=utf-8," + [
+        [
+            "Amount",
+            "Type",
+            "Description",
+            "Date",
+            "Balance",
+        ],
+        ...tableData.map(item => [
+            item.amount,
+            item.type,
+            item.description,
+            item.date,
+            item.balance,
+        ])
+    ].map(e => e.join(","))
+        .join("\n");;
+
+    const encodedUri = encodeURI(csvString);
+    var link = document.createElement("a");
+    link.style.display = 'none';
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "transactions.csv");
+    document.body.appendChild(link);
+
+    link.click();
+}

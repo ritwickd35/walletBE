@@ -35,6 +35,10 @@ html(lang='en')
                                     option(value='15') 15
                                     option(value='20') 20
                                     option(value='5000') Show ALL Rows
+                            
+                            
+                            .col-12
+                                button.btn.btn-secondary(onclick="downloadCSV(event)" style="width:100%;") Download CSV Data for this Wallet
 
                             .col-12
                                 table#transactTable.table.table-striped.table-class.my-4.p-3
@@ -50,7 +54,7 @@ html(lang='en')
                                         td(colspan='5')
                                             i Loading...
                             .row#paginator
-                                .col-6 
+                                .col-6(style="padding-left:37px;")
                                     button#prevButton Previous
                                 .col-6 
                                     button#nextButton Next
