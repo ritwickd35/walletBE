@@ -25,9 +25,11 @@ let curPage = 1;
 function init() {
     // Select the table 
     table = document.querySelector('#transactTable tbody');
-    if (!walletId || !walletId.length)
-        walletId = location.pathname.split('/')[3]
 
+    if (!walletId || !walletId.length) {
+        const locationHref = location.pathname.split('/')
+        walletId = locationHref[locationHref.length - 1]
+    }
     fetch('/transactions?walletId=' + walletId)
         .then((response) => {
             if (response.ok)
