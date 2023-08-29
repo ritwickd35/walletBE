@@ -56,6 +56,9 @@ a:hover,
 a:active {
   background-color: #800f00;
 }
+button:active {
+  background-color: #9ec7af !important;
+}
 .custom-model-main-transactionError {
   color: rgb(190, 190, 190) !important;
 
