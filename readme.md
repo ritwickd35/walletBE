@@ -10,7 +10,7 @@ The balances can be passed as Number or String, and the APIs will correctly infe
 
 The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted. The error handling has been implemented such that on any failure during transaction, the concerned wallet will roll back to its previous balance and the transaction, if created, will be deleted, with suitable error messages.
 
-Additionally, a server side UI has been developed to view the Wallet Details and do Transactions. [Pug](https://github.com/pugjs/pug/tree/master) has been used as a templating engine. The pages are served by the API Server itself.
+Additionally, a server side UI has been developed to view the Wallet Details and do Transactions. [Pug](https://github.com/pugjs/pug/tree/master) has been used as a templating engine.
 
 The project is hosted live at the following URL [http://43.205.211.164:3000](http://43.205.211.164:3000).
 
