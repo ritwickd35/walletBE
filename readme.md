@@ -145,5 +145,3 @@ The backend services are primarily built using Node.js. The application is a ser
 2. Express
 3. Pug
 4. Bootstrap CSS
-
-Feel free to customize this Markdown documentation for your specific use case and formatting preferences.
