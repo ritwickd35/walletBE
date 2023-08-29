@@ -8,7 +8,7 @@ JavaScript's floating-point operations can be imprecise due to how numbers are s
 
 The balances can be passed as Number or String, and the APIs will correctly infer the amount.
 
-The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted.
+The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted. The error handling has been implemented such that on any failure during transaction, the concerned wallet will roll back to its previous balance and the transaction, if created, will be deleted, with suitable error messages.
 
 The project is hosted live at the following URL [http://43.205.211.164:3000](http://43.205.211.164:3000).
 
