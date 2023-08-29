@@ -1,57 +1,72 @@
 doctype html
 head
   script(src=`/assets/js/walletScript.js` defer)
-  link(rel='stylesheet' href=`/assets/css/bootstrap.css`)
   link(rel='stylesheet' href=`/assets/css/style.css`)
+  link(rel='stylesheet' href=`/assets/css/bootstrap.css`)
+
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title View Wallet Details
 body
-  .container
-    button#errormodalshow.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style='display: none;') Launch demo modal
-    // Modal
-    .custom-model-main-walletError
-        .custom-model-inner
-            .close-btn-1 &times;
-            .custom-model-wrap
-                #errortext.pop-up-content-wrap(style='color: gray;')
-                    | Please enter correct details
-        .bg-overlay-1
-    
-    #walletDetailsDiv.row
-        .card.text-center(style='margin-top: 20px; padding: 0px')
-            h5.card-header Wallet Details
-            .card-body
-                .row
+    section.banner
+      .container
+        .banner-text
+            
+          h1 Payments Wallet
+          #walletDetailsDiv
+                .card-body
+                    .row(style='margin-top: 30px;margin-bottom: 40px;text-wrap: nowrap;')
+                        .col-4
+                            h6.my-2 Wallet Name
+                            h2#walletName 
+                        .col-4(style='margin-top: 7px;margin-left: 40px;')
+                            h6.my2 Wallet Balance
+                            h2#walletBalance 
+                        .col-2.mx-4 
+                
+                a#transactionNavigate(href='/transaction-details/')
+                                        small View Transactions
+      img.banner-image(src='/assets/images/bannerimg.png')
+
+    .container
+        button#errormodalshow.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style='display: none;') Launch demo modal
+        // Modal
+        .custom-model-main-walletError
+            .custom-model-inner
+                .close-btn-1 &times;
+                .custom-model-wrap
+                    #errortext.pop-up-content-wrap(style='color: gray;')
+                        | Please enter correct details
+            .bg-overlay-1
+        
+        
+
+
+        #walletInputDiv.card
+            img.card-icon(src='/assets/images/monitoring.png', alt='monitoring')
+            h3.card-title Configure Wallet 
+            p.card-text No Wallet is configured. Please enter the wallet name
+            form#walletDetailsForm
+                .mb-3
+                    label.form-label(for='inputWalletName') Wallet Name
+                    input#inputWalletName.form-control(type='text' aria-describedby='walletHelp' name='walletName')
+                    #walletHelp.form-text(style='color: white;') Enter your wallet name
+                .mb-3
+                    label.form-label(for='inputBalance') Initial Balance
+                    input#inputBalance.form-control(type='text' name='walletBalance')
+                .row 
                     .col-4
-                        h5.my-2 Wallet Name
-                        h6#walletName 
                     .col-4
-                        h5.my2 Wallet Balance
-                        #walletBalance 
-                    .col-2.mx-4 
-                        a#transactionNavigate(href='/transaction-details/')
-                            small View Transactions
+                        button(type='submit') Submit
+                    .col-4
+            
 
-
-
-    #walletInputDiv.row.card.my-4.py-3
-        form#walletDetailsForm
-            .mb-3
-                label.form-label(for='inputWalletName') Wallet Name
-                input#inputWalletName.form-control(type='text' aria-describedby='walletHelp' name='walletName')
-                #walletHelp.form-text(style='color: white;') Enter your wallet name
-            .mb-3
-                label.form-label(for='inputBalance') Initial Balance
-                input#inputBalance.form-control(type='text' name='walletBalance')
-            .row 
-                .col-4
-                .col-4
-                    button#walletsubmitbtn.btn.btn-primary(type='submit' style='background:#21d1b4; width: 100%;') Submit
-                .col-4
-    #transactionDiv.row.card.my-4
-        h5.card-header.text-center New Transaction
-        .card-body
+        
+        #transactionDiv.card
+            img.card-icon(src='/assets/images/snapshots.png', alt='monitoring')
+            h3.card-title New Transaction
+            p.card-text Enter an amount to Credit/Debit. You can enter decimals upto four decimal places. Negative numbers are also supported
+            
             form#transactionForm
                 .mb-3
                     label.form-label(for='inputTransactionAmt') Transaction Amount
@@ -72,6 +87,6 @@ body
                 .row 
                     .col-4
                     .col-4
-                        button#submitTransaction.btn.btn-primary(type='submit' style='background:#e25542;') Submit
+                        button(type='submit' style='background:#e25542;') Submit
                     .col-4
         

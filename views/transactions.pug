@@ -20,43 +20,44 @@ html(lang='en')
                             | Please enter correct details
                 .bg-overlay-1
             .row
-                .card.text-center(style='margin-top: 20px; padding: 0px')
-                    h5.card-header Transactions
-                    .card-body
-                        .row
-                            .col-6 
-                                h5.py-4 Select Number Of Rows
-                            .col-6 
-                                // Show Numbers Of Rows
-                                select#maxRows.form-control.my-3(name='state')
-                                    option(value='3') 3
-                                    option(value='5') 5
-                                    option(value='10') 10
-                                    option(value='15') 15
-                                    option(value='20') 20
-                                    option(value='5000') Show ALL Rows
-                            
-                            
-                            .col-12
-                                button.btn.btn-secondary(onclick="downloadCSV(event)" style="width:100%;") Download CSV Data for this Wallet
+                .card(style='margin-top: 40px; padding: 20px')
+                    h3.card-title Transactions
+                    p.card-text Below are the previous transactions. The table can be sorted by clicking on any of the column names and you can generate CSV files. By default 3 rows are displayed.
+                    
+                    .row
+                        .col-6 
+                            h5.py-4 Select Number Of Rows
+                        .col-6 
+                            // Show Numbers Of Rows
+                            select#maxRows.form-control.my-3(name='state')
+                                option(value='3') 3
+                                option(value='5') 5
+                                option(value='10') 10
+                                option(value='15') 15
+                                option(value='20') 20
+                                option(value='5000') Show ALL Rows
+                        
+                        
+                        .col-12
+                            button.btn.btn-secondary(onclick="downloadCSV(event)" style="width:100%;") Download CSV Data for this Wallet
 
-                            .col-12
-                                table#transactTable.table.table-striped.table-class.my-4.p-3
-                                    thead
-                                        tr
-                                        th(data-sort='amount' style='cursor:pointer;') Amount
-                                        th(data-sort='type' style='cursor:pointer;') Type
-                                        th(data-sort='description' style='cursor:pointer;') Description
-                                        th(data-sort='date' style='cursor:pointer;') Date
-                                        th(data-sort='balance' style='cursor:pointer;') Balance
-                                    tbody
-                                        tr
-                                        td(colspan='5')
-                                            i Loading...
-                            .row#paginator
-                                .col-6(style="padding-left:37px;")
-                                    button#prevButton Previous
-                                .col-6 
-                                    button#nextButton Next
+                        .col-12
+                            table#transactTable.table.table-striped.table-class.my-4.p-3
+                                thead
+                                    tr
+                                    th(data-sort='amount' style='cursor:pointer;') Amount
+                                    th(data-sort='type' style='cursor:pointer;') Type
+                                    th(data-sort='description' style='cursor:pointer;') Description
+                                    th(data-sort='date' style='cursor:pointer;') Date
+                                    th(data-sort='balance' style='cursor:pointer;') Balance
+                                tbody
+                                    tr
+                                    td(colspan='5')
+                                        i Loading...
+                        .row#paginator
+                            .col-6(style="padding-left:37px;")
+                                button#prevButton Previous
+                            .col-6 
+                                button#nextButton Next
 
                             

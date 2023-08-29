@@ -10,9 +10,6 @@ const path = require("path");
 const jsonParser = bodyParser.json()
 
 
-
-
-
 // const mongo_URL = `mongodb://${process.env.MONGO_URL}/${process.env.MONGO_DATABASE_NAME}?directConnection=true`
 const mongo_URL = `mongodb://${process.env.MONGO_URL}/${process.env.MONGO_DATABASE_NAME}`
 
