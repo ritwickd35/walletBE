@@ -2,13 +2,15 @@
 
 This documentation outlines the APIs and functionality of the wallet system. The system allows users to initialize wallets, perform credit and debit transactions, fetch transaction history, and retrieve wallet details.
 
-This project uses Decimal.js to accurately keep track of payments and balances. The values are stored in the database as String, to make sure the values are being preserved exactly as they are.
+This project uses [Decimal.js](https://github.com/MikeMcl/decimal.js) to accurately keep track of payments and balances. The values are stored in the database as String, to make sure the values are being preserved exactly as they are.
 
 JavaScript's floating-point operations can be imprecise due to how numbers are stored in binary. This causes rounding errors in decimal calculations. Libraries like Decimal.js fix this by using better methods to store and handle numbers, ensuring accurate arithmetic for critical applications.
 
 The balances can be passed as Number or String, and the APIs will correctly infer the amount.
 
 The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted. The error handling has been implemented such that on any failure during transaction, the concerned wallet will roll back to its previous balance and the transaction, if created, will be deleted, with suitable error messages.
+
+Additionally, a server side UI has been developed to view the Wallet Details and do Transactions. [Pug](https://github.com/pugjs/pug/tree/master) has been used as a templating engine. The pages are served by the API Server itself.
 
 The project is hosted live at the following URL [http://43.205.211.164:3000](http://43.205.211.164:3000).
 
