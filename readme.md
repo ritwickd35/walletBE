@@ -1,6 +1,14 @@
-# Wallet System APIs Documentation
+# Wallet APIs Documentation
 
 This documentation outlines the APIs and functionality of the wallet system. The system allows users to initialize wallets, perform credit and debit transactions, fetch transaction history, and retrieve wallet details.
+
+This project uses Decimal.js to accurately keep track of payments and balances. The values are stored in the database as String, to eliminate make sure the values are being preserved exactly as they are.
+
+JavaScript's floating-point operations can be imprecise due to how numbers are stored in binary. This causes rounding errors in decimal calculations. Libraries like Decimal.js fix this by using better methods to store and handle numbers, ensuring accurate arithmetic for critical applications.
+
+The balances can be passed as Number or String, and the APIs will correctly infer the amount.
+
+The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted.
 
 ## API Endpoints
 
@@ -11,7 +19,7 @@ This documentation outlines the APIs and functionality of the wallet system. The
    - Request Body:
      ```json
      {
-       "balance": 10.5612,
+       "balance": 10.0012,
        "name": "Wallet A"
      }
      ```
@@ -20,7 +28,7 @@ This documentation outlines the APIs and functionality of the wallet system. The
      ```json
      {
        "id": "64ed966b131b5b9cad902c6f",
-       "balance": 10.5612,
+       "balance": 10.0012,
        "name": "Wallet A",
        "date": "<JS Date obj>"
      }
@@ -135,7 +143,7 @@ To provide a user-friendly interface, a simple 2-page web app has been implement
 2. **Page 2: Wallet Transactions**
 
    - Displays a table of all transactions for the wallet.
-   - Supports pagination, sorting by date, amount, type of transaction, and CSV export.
+   - Supports pagination, sorting by date, amount, type of transaction, and CSV export. The table can be sorted by any of the columns by clicking the column header.
 
 ## Languages and Databases
 
@@ -144,4 +152,5 @@ The backend services are primarily built using Node.js. The application is a ser
 1. MongoDB
 2. Express
 3. Pug
-4. Bootstrap CSS
+4. Decimal.js
+5. Bootstrap CSS

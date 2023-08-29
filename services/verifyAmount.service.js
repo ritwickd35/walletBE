@@ -1,3 +1,8 @@
+/**
+ * this service verifies if the amount is a valid floating point number and if it has not more than 4 decimal places
+ * @param {*} amount 
+ * @returns true if valid
+ */
 const verifyAmount = (amount) => {
     if (isNaN(Number(amount))) {
         console.log("given amount is not a number verifyAmount")
