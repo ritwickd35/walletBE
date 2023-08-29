@@ -23,34 +23,34 @@ let pageSize = 3;
 let curPage = 1;
 
 function init() {
-    // Select the table (well, tbody)
+    // Select the table 
     table = document.querySelector('#transactTable tbody');
-    // get the cats
-    if (walletId) {
-        fetch('/transactions?walletId=' + walletId)
-            .then((response) => {
-                if (response.ok)
-                    return response.json();
-                return Promise.reject(response)
-            })
-            .then((resData) => {
-                tableData = resData
-                if (pageSize >= tableData.length) document.getElementById('paginator').style.display = 'none'
-                else document.getElementById('paginator').style.display = ''
-                renderTable()
-                // listen for sort clicks
-                document.querySelectorAll('#transactTable thead tr th').forEach(t => {
-                    t.addEventListener('click', sort, false);
-                });
+    if (!walletId || !walletId.length)
+        walletId = location.pathname.split('/')[3]
 
-                document.querySelector('#nextButton').addEventListener('click', nextPage, false);
-                document.querySelector('#prevButton').addEventListener('click', previousPage, false);
-            }).catch(err => {
-                err.json().then((err) => {
-                    displayError(err.message)
-                })
+    fetch('/transactions?walletId=' + walletId)
+        .then((response) => {
+            if (response.ok)
+                return response.json();
+            return Promise.reject(response)
+        })
+        .then((resData) => {
+            tableData = resData
+            if (pageSize >= tableData.length) document.getElementById('paginator').style.display = 'none'
+            else document.getElementById('paginator').style.display = ''
+            renderTable()
+            // listen for sort clicks
+            document.querySelectorAll('#transactTable thead tr th').forEach(t => {
+                t.addEventListener('click', sort, false);
             });
-    }
+
+            document.querySelector('#nextButton').addEventListener('click', nextPage, false);
+            document.querySelector('#prevButton').addEventListener('click', previousPage, false);
+        }).catch(err => {
+            err.json().then((err) => {
+                displayError(err.message)
+            })
+        });
 
 
 }

@@ -6,7 +6,7 @@ html(lang='en')
         meta(charset='utf-8')
         title View Transactions
         script.
-            const walletId = String(`!{walletId}`);
+            let walletId = String(`!{walletId}`);
         script(src=`/assets/js/transactionScript.js` defer)
     body
         .container
