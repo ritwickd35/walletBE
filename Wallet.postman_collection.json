@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "cccac180-e149-4f23-91dc-3dc3e04ca7d6",
+		"name": "Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19580306"
+	},
+	"item": [
+		{
+			"name": "Setup",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept-encoding": true,
+					"connection": true,
+					"host": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"balance\": \"100.0001\",\r\n  \"name\": \"myWallet\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://43.205.211.164:3000/setup",
+					"protocol": "http",
+					"host": [
+						"43",
+						"205",
+						"211",
+						"164"
+					],
+					"port": "3000",
+					"path": [
+						"setup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://43.205.211.164:3000/transactions?walletId=64edbbc78aa7fddd3ff3344f",
+					"protocol": "http",
+					"host": [
+						"43",
+						"205",
+						"211",
+						"164"
+					],
+					"port": "3000",
+					"path": [
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "walletId",
+							"value": "64edbbc78aa7fddd3ff3344f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Wallet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://43.205.211.164:3000/wallet/64edbbc78aa7fddd3ff3344f",
+					"protocol": "http",
+					"host": [
+						"43",
+						"205",
+						"211",
+						"164"
+					],
+					"port": "3000",
+					"path": [
+						"wallet",
+						"64edbbc78aa7fddd3ff3344f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": \"100.098\",\r\n  \"description\": \"debit credit 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://43.205.211.164:3000/transact/64edbbc78aa7fddd3ff3344f",
+					"protocol": "http",
+					"host": [
+						"43",
+						"205",
+						"211",
+						"164"
+					],
+					"port": "3000",
+					"path": [
+						"transact",
+						"64edbbc78aa7fddd3ff3344f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
