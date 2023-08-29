@@ -2,7 +2,7 @@
 
 This documentation outlines the APIs and functionality of the wallet system. The system allows users to initialize wallets, perform credit and debit transactions, fetch transaction history, and retrieve wallet details.
 
-This project uses Decimal.js to accurately keep track of payments and balances. The values are stored in the database as String, to eliminate make sure the values are being preserved exactly as they are.
+This project uses Decimal.js to accurately keep track of payments and balances. The values are stored in the database as String, to make sure the values are being preserved exactly as they are.
 
 JavaScript's floating-point operations can be imprecise due to how numbers are stored in binary. This causes rounding errors in decimal calculations. Libraries like Decimal.js fix this by using better methods to store and handle numbers, ensuring accurate arithmetic for critical applications.
 
