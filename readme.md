@@ -11,7 +11,8 @@ The balances can be passed as Number or String, and the APIs will correctly infe
 The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted.
 
 The project is hosted live at the following URL [http://43.205.211.164:3000](http://43.205.211.164:3000).
-   
+
+A Postman v2.1 Collection is included in the project root with all the APIs for testing.
 
 ## API Endpoints
 
@@ -127,7 +128,6 @@ To run the project using Docker Compose and access it via a locally hosted URL, 
    ```json
    docker-compose up --build
    ```
-
 
 ## Web Application UI
 

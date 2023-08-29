@@ -50,7 +50,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://43.205.211.164:3000/transactions?walletId=64edbbc78aa7fddd3ff3344f",
+					"raw": "http://43.205.211.164:3000/transactions?walletId=64edbbc78aa7fddd3ff3344f&skip=1&limit=2",
 					"protocol": "http",
 					"host": [
 						"43",
@@ -66,6 +66,14 @@
 						{
 							"key": "walletId",
 							"value": "64edbbc78aa7fddd3ff3344f"
+						},
+						{
+							"key": "skip",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
 						}
 					]
 				}
