@@ -9,26 +9,26 @@ head
   title View Wallet Details
 body
     section.banner
-      .container
+      .container(style='margin-top: 30px;')
         .banner-text
             
-          h1 Payments Wallet
+          h1(style='font-family: monospace;') Payments Wallet
           #walletDetailsDiv
                 .card-body
-                    .row(style='margin-top: 30px;margin-bottom: 40px;text-wrap: nowrap;')
+                    .row(style='margin-top: 30px;margin-bottom: 40px;')
                         .col-4
                             h6.my-2 Wallet Name
                             h2#walletName 
                         .col-4(style='margin-top: 7px;margin-left: 40px;')
                             h6.my2 Wallet Balance
-                            h2#walletBalance 
+                            h1(style='font-family: monospace;font-weight: 200;')#walletBalance 
                         .col-2.mx-4 
                 
-                a#transactionNavigate(href='/transaction-details/')
-                                        small View Transactions
+                a.my-3#transactionNavigate(href='/transaction-details/')
+                                 |        View Transactions
       img.banner-image(src='/assets/images/bannerimg.png')
 
-    .container
+    .container(style='margin-top:69px;' )
         button#errormodalshow.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style='display: none;') Launch demo modal
         // Modal
         .custom-model-main-walletError
@@ -42,7 +42,7 @@ body
         
 
 
-        #walletInputDiv.card
+        #walletInputDiv.card(style='margin-top:20px;')
             img.card-icon(src='/assets/images/monitoring.png', alt='monitoring')
             h3.card-title Configure Wallet 
             p.card-text No Wallet is configured. Please enter the wallet name
