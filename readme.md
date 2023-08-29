@@ -138,11 +138,12 @@ To provide a user-friendly interface, a simple 2-page web app has been implement
    - If no wallet is configured, users can enter their name, an optional initial balance, and click Submit to initialize a new wallet.
    - Wallet ID is saved in local storage for future visits.
    - Wallet balance and name are displayed using the saved wallet ID.
-   - Users can navigate to Page 2 using a provided link to view transactions.
+   - Users can click on View Transactions to view transactions.
 
 2. **Page 2: Wallet Transactions**
 
    - Displays a table of all transactions for the wallet.
+   - Number of entries to display can be selected from a dropdown.
    - Supports pagination, sorting by date, amount, type of transaction, and CSV export. The table can be sorted by any of the columns by clicking the column header.
 
 ## Languages and Databases
