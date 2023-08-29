@@ -10,6 +10,11 @@ The balances can be passed as Number or String, and the APIs will correctly infe
 
 The Database operations are atomic, if any of the transactions fail, the Wallet balance will roll back and the transaction will be reverted.
 
+The project is hosted live at the following URL
+   ```json
+   http://43.205.211.164:3000/
+   ```
+
 ## API Endpoints
 
 1. **Initialize Wallet**
@@ -112,7 +117,7 @@ The Database operations are atomic, if any of the transactions fail, the Wallet 
 
 ## Running the Project
 
-To run the project using Docker Compose and access it via a publicly accessible URL, follow these steps:
+To run the project using Docker Compose and access it via a locally hosted URL, follow these steps:
 
 1. Make sure you have Docker and Docker Compose installed on your system.
 
@@ -124,10 +129,7 @@ To run the project using Docker Compose and access it via a publicly accessible 
    ```json
    docker-compose up --build
    ```
-5. Once the containers are up and running, you can access the project at the following URL
-   ```json
-   http://43.205.211.164:3000/
-   ```
+
 
 ## Web Application UI
 
